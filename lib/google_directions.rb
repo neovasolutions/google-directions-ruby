@@ -5,7 +5,7 @@ require 'google_directions'
 class GoogleDirections
   
   def initialize(location_1, location_2)
-    @base_url = "http://maps.google.com/maps/api/directions/xml?key=#{GOOGLE_MAPS_API_KEY}&sensor=false&"
+    @base_url = "http://maps.google.com/maps/api/directions/xml?sensor=false&"
     @location_1 = location_1
     @location_2 = location_2
     options = "origin=#{transcribe(@location_1)}&destination=#{transcribe(@location_2)}"
@@ -14,7 +14,7 @@ class GoogleDirections
   end
 
   # an example URL to be generated
-  #http://maps.google.com/maps/api/directions/xml?origin=St.+Louis,+MO&destination=Nashville,+TN&sensor=false&key=ABQIAAAAINgf4OmAIbIdWblvypOUhxSQ8yY-fgrep0oj4uKpavE300Q6ExQlxB7SCyrAg2evsxwAsak4D0Liiv
+  #http://maps.google.com/maps/api/directions/xml?origin=St.+Louis,+MO&destination=Nashville,+TN&sensor=false
   
   def find_status
     doc = Nokogiri::XML(xml)
